@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps API</title>
+    <link rel="stylesheet" href="../common/main.css">
+    <style>
+    #target {
+        width: 550px;
+        height: 400px;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>Google Maps JavaScript API V3</a></h1>
+    <h2>Customizing Google maps with your own content and imagery for display on web pages and mobile devices</n>
+    <ul>
+        <li><a href="https://developers.google.com/maps/documentation/javascript/reference" target="_blank">API Reference</a></li>
+        <li><a href="https://www.iso.org/obp/ui/#search/code/" target="_blank">Country Code</a></li>
+        <li></li>
+    </ul></h2>
+
+    <div id="target"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?language=en&region=GB&key=AIzaSyCmdhTEiHhjJ4hy6EgmQbyDPUCiVEF9NH8&callback=initMap" async defer></script>
+
+    <script>
+        function initMap() {
+            'use strict';
+
+            var target = document.getElementById('target');
+            var map;
+            var elizabethPark = {lat: 51.545644, lng: -0.020159};
+            var marker;
+            
+            map = new google.maps.Map(target, {
+                center: elizabethPark,
+                zoom: 15,
+                disableDefaultUI: true,
+                zoomControl: true,
+                // mapTypeId: 'hybrid',
+                clickableIcons: false
+                });
+                
+        map.addListener('click', function(e) {
+            console.log(e.latLng.lat());
+            console.log(e.latLng.lng());
+            console.log(e.latLng.toString());
+            // this.setCenter(e.latLng);
+            this.panTo(e.latLng); 
+            });
+
+        marker = new google.maps.Marker({
+            position: elizabethPark,
+            map: map,
+            title: 'elizabethPark!',
+            // icon: 'icon.png',
+            icon: {
+                url: 'icon.png',
+                scaledSize: new google.maps.Size(24, 24)
+            },
+        // animation: google.maps.Animation.BOUNCE
+        animation: google.maps.Animation.DROP
+      });
+
+        }
+    
+    </script>
+
+</body>
+</html>

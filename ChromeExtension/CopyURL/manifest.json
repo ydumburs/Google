@@ -1,16 +1,14 @@
 {
-    "manifest_version": 2,
-    "name": "Get Title & URL",
-    "version": "1.0",
-  
-    "browser_action": {
-      "default_icon": {
-        "16": "icon.png"
-      },
-      "default_popup": "popup.html"
+  "manifest_version": 2,
+  "name": "Get HTML Title & URL",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": {
+      "16": "icon.png"
     },
-
-    "permissions": [
-      "tabs"
-    ]
-  }
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}
